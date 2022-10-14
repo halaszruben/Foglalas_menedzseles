@@ -1,0 +1,1 @@
+# Foglalas_menedzseles
