@@ -16,7 +16,5 @@ namespace HotelReservations
         {
             InitializeComponent();
         }
-
-        
     }
 }
