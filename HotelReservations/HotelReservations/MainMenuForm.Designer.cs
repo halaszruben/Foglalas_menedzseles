@@ -84,18 +84,21 @@
             this.clientsFormToolStripMenuItem.Name = "clientsFormToolStripMenuItem";
             this.clientsFormToolStripMenuItem.Size = new System.Drawing.Size(172, 29);
             this.clientsFormToolStripMenuItem.Text = "Client(s) Form";
+            this.clientsFormToolStripMenuItem.Click += new System.EventHandler(this.clientsFormToolStripMenuItem_Click);
             // 
             // roomsFormToolStripMenuItem
             // 
             this.roomsFormToolStripMenuItem.Name = "roomsFormToolStripMenuItem";
             this.roomsFormToolStripMenuItem.Size = new System.Drawing.Size(157, 29);
             this.roomsFormToolStripMenuItem.Text = "Rooms Form";
+            this.roomsFormToolStripMenuItem.Click += new System.EventHandler(this.roomsFormToolStripMenuItem_Click);
             // 
             // reservationsManagementFormToolStripMenuItem
             // 
             this.reservationsManagementFormToolStripMenuItem.Name = "reservationsManagementFormToolStripMenuItem";
             this.reservationsManagementFormToolStripMenuItem.Size = new System.Drawing.Size(372, 29);
             this.reservationsManagementFormToolStripMenuItem.Text = "Reservation(s) Management Form";
+            this.reservationsManagementFormToolStripMenuItem.Click += new System.EventHandler(this.reservationsManagementFormToolStripMenuItem_Click);
             // 
             // dateTimePicker
             // 
@@ -122,6 +125,7 @@
             this.Controls.Add(this.mainMenuStrip);
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenuForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenuForm_FormClosing);
             this.mainMenuStrip.ResumeLayout(false);

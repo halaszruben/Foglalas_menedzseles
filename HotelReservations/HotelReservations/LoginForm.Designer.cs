@@ -105,6 +105,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(167, 39);
             this.textBoxPassword.TabIndex = 3;
+            this.textBoxPassword.Text = "admin";
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // label3
@@ -125,6 +126,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(167, 39);
             this.textBoxUsername.TabIndex = 1;
+            this.textBoxUsername.Text = "admin";
             // 
             // label2
             // 

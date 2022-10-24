@@ -33,5 +33,23 @@ namespace HotelReservations
         {
             Application.Exit();
         }
+
+        private void clientsFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageClientsForm manageCF = new ManageClientsForm();
+            manageCF.Show();
+        }
+
+        private void roomsFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageRoomsForm manageRF = new ManageRoomsForm();
+            manageRF.Show();
+        }
+
+        private void reservationsManagementFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageReservationsForm manageRSVF = new ManageReservationsForm();
+            manageRSVF.Show();
+        }
     }
 }
