@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.manageClientsPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButtonNo = new System.Windows.Forms.RadioButton();
+            this.radioButtonYes = new System.Windows.Forms.RadioButton();
             this.comboBoxRoomsType = new System.Windows.Forms.ComboBox();
             this.clearTheFieldsButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
@@ -36,7 +39,6 @@
             this.buttonAddRoom = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.manageClientsPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +55,7 @@
             this.manageClientsPanel.BackgroundImage = global::HotelReservations.Properties.Resources.reception;
             this.manageClientsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.manageClientsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.manageClientsPanel.Controls.Add(this.panel1);
             this.manageClientsPanel.Controls.Add(this.comboBoxRoomsType);
             this.manageClientsPanel.Controls.Add(this.clearTheFieldsButton);
             this.manageClientsPanel.Controls.Add(this.RemoveButton);
@@ -59,7 +63,6 @@
             this.manageClientsPanel.Controls.Add(this.buttonAddRoom);
             this.manageClientsPanel.Controls.Add(this.dataGridView1);
             this.manageClientsPanel.Controls.Add(this.textBoxPhoneNumber);
-            this.manageClientsPanel.Controls.Add(this.label6);
             this.manageClientsPanel.Controls.Add(this.label4);
             this.manageClientsPanel.Controls.Add(this.label5);
             this.manageClientsPanel.Controls.Add(this.label3);
@@ -71,7 +74,41 @@
             this.manageClientsPanel.Name = "manageClientsPanel";
             this.manageClientsPanel.Size = new System.Drawing.Size(1282, 703);
             this.manageClientsPanel.TabIndex = 1;
-            this.manageClientsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.manageClientsPanel_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioButtonNo);
+            this.panel1.Controls.Add(this.radioButtonYes);
+            this.panel1.Location = new System.Drawing.Point(999, 312);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(250, 56);
+            this.panel1.TabIndex = 21;
+            // 
+            // radioButtonNo
+            // 
+            this.radioButtonNo.AutoSize = true;
+            this.radioButtonNo.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonNo.ForeColor = System.Drawing.Color.Red;
+            this.radioButtonNo.Location = new System.Drawing.Point(136, 14);
+            this.radioButtonNo.Name = "radioButtonNo";
+            this.radioButtonNo.Size = new System.Drawing.Size(68, 29);
+            this.radioButtonNo.TabIndex = 0;
+            this.radioButtonNo.Text = "NO";
+            this.radioButtonNo.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonYes
+            // 
+            this.radioButtonYes.AutoSize = true;
+            this.radioButtonYes.Checked = true;
+            this.radioButtonYes.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonYes.ForeColor = System.Drawing.Color.Green;
+            this.radioButtonYes.Location = new System.Drawing.Point(34, 14);
+            this.radioButtonYes.Name = "radioButtonYes";
+            this.radioButtonYes.Size = new System.Drawing.Size(76, 29);
+            this.radioButtonYes.TabIndex = 0;
+            this.radioButtonYes.TabStop = true;
+            this.radioButtonYes.Text = "YES";
+            this.radioButtonYes.UseVisualStyleBackColor = true;
             // 
             // comboBoxRoomsType
             // 
@@ -105,6 +142,7 @@
             this.RemoveButton.TabIndex = 18;
             this.RemoveButton.Text = "Remove Room";
             this.RemoveButton.UseVisualStyleBackColor = false;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // buttonEditRoom
             // 
@@ -116,6 +154,7 @@
             this.buttonEditRoom.TabIndex = 17;
             this.buttonEditRoom.Text = "Edit Room";
             this.buttonEditRoom.UseVisualStyleBackColor = false;
+            this.buttonEditRoom.Click += new System.EventHandler(this.buttonEditRoom_Click);
             // 
             // buttonAddRoom
             // 
@@ -142,6 +181,7 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(544, 437);
             this.dataGridView1.TabIndex = 15;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // textBoxPhoneNumber
             // 
@@ -152,31 +192,17 @@
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(270, 34);
             this.textBoxPhoneNumber.TabIndex = 12;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.Green;
-            this.label6.Location = new System.Drawing.Point(999, 312);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 25);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "YES";
-            this.label6.Click += new System.EventHandler(this.label4_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(926, 312);
+            this.label4.Location = new System.Drawing.Point(926, 326);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 25);
             this.label4.TabIndex = 11;
             this.label4.Text = "Free:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -246,6 +272,8 @@
             this.Load += new System.EventHandler(this.ManageRoomsForm_Load);
             this.manageClientsPanel.ResumeLayout(false);
             this.manageClientsPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -267,6 +295,8 @@
         private Label label1;
         private ComboBox comboBoxRoomsType;
         private Label label4;
-        private Label label6;
+        private Panel panel1;
+        private RadioButton radioButtonNo;
+        private RadioButton radioButtonYes;
     }
 }

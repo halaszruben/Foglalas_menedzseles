@@ -176,9 +176,9 @@
             this.label5.ForeColor = System.Drawing.Color.Navy;
             this.label5.Location = new System.Drawing.Point(821, 307);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(173, 25);
+            this.label5.Size = new System.Drawing.Size(185, 25);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Phone Number:";
+            this.label5.Text = "*Phone Number:";
             // 
             // textBoxLastName
             // 
@@ -197,9 +197,9 @@
             this.label4.ForeColor = System.Drawing.Color.Navy;
             this.label4.Location = new System.Drawing.Point(865, 254);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 25);
+            this.label4.Size = new System.Drawing.Size(141, 25);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Last Name:";
+            this.label4.Text = "*Last Name:";
             // 
             // textBoxFirstName
             // 
@@ -218,9 +218,9 @@
             this.label3.ForeColor = System.Drawing.Color.Navy;
             this.label3.Location = new System.Drawing.Point(862, 208);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 25);
+            this.label3.Size = new System.Drawing.Size(144, 25);
             this.label3.TabIndex = 7;
-            this.label3.Text = "First Name:";
+            this.label3.Text = "*First Name:";
             // 
             // textBoxID
             // 
