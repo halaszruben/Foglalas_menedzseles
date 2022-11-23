@@ -80,9 +80,9 @@
             // 
             this.clearTheFieldsButton.BackColor = System.Drawing.Color.Transparent;
             this.clearTheFieldsButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.clearTheFieldsButton.Location = new System.Drawing.Point(774, 530);
+            this.clearTheFieldsButton.Location = new System.Drawing.Point(705, 530);
             this.clearTheFieldsButton.Name = "clearTheFieldsButton";
-            this.clearTheFieldsButton.Size = new System.Drawing.Size(335, 31);
+            this.clearTheFieldsButton.Size = new System.Drawing.Size(404, 31);
             this.clearTheFieldsButton.TabIndex = 19;
             this.clearTheFieldsButton.Text = "Clear The Fields";
             this.clearTheFieldsButton.UseVisualStyleBackColor = false;
@@ -116,9 +116,9 @@
             // 
             this.addButton.BackColor = System.Drawing.Color.Transparent;
             this.addButton.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addButton.Location = new System.Drawing.Point(774, 482);
+            this.addButton.Location = new System.Drawing.Point(705, 482);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(157, 42);
+            this.addButton.Size = new System.Drawing.Size(226, 42);
             this.addButton.TabIndex = 16;
             this.addButton.Text = "Add New Client";
             this.addButton.UseVisualStyleBackColor = false;
@@ -174,17 +174,17 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(821, 307);
+            this.label5.Location = new System.Drawing.Point(809, 306);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(173, 25);
+            this.label5.Size = new System.Drawing.Size(185, 25);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Phone Number:";
+            this.label5.Text = "*Phone Number:";
             // 
             // textBoxLastName
             // 
             this.textBoxLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxLastName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxLastName.Location = new System.Drawing.Point(1000, 254);
+            this.textBoxLastName.Location = new System.Drawing.Point(1000, 252);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(270, 34);
             this.textBoxLastName.TabIndex = 10;
@@ -195,17 +195,17 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(865, 254);
+            this.label4.Location = new System.Drawing.Point(853, 254);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 25);
+            this.label4.Size = new System.Drawing.Size(141, 25);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Last Name:";
+            this.label4.Text = "*Last Name:";
             // 
             // textBoxFirstName
             // 
             this.textBoxFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFirstName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxFirstName.Location = new System.Drawing.Point(1000, 205);
+            this.textBoxFirstName.Location = new System.Drawing.Point(1000, 204);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(270, 34);
             this.textBoxFirstName.TabIndex = 8;
@@ -216,11 +216,11 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(862, 208);
+            this.label3.Location = new System.Drawing.Point(850, 207);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 25);
+            this.label3.Size = new System.Drawing.Size(144, 25);
             this.label3.TabIndex = 7;
-            this.label3.Text = "First Name:";
+            this.label3.Text = "*First Name:";
             // 
             // textBoxID
             // 

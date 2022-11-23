@@ -28,30 +28,37 @@ namespace HotelReservations
             dataGridView1.DataSource = room.getRooms();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void manageClientsPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void buttonAddRoom_Click(object sender, EventArgs e)
         {
-            int number = Convert.ToInt32(textBoxNumber.Text);
             int type = Convert.ToInt32(comboBoxRoomsType.SelectedValue.ToString());
-            string phone = textBoxNumber.Text;
+            string phone = textBoxPhoneNumber.Text;
+            string free = "";
 
-            if (room.addRoom(number, type, phone, "Yes"))
+            try
             {
-                dataGridView1.DataSource = room.getRooms();
-                MessageBox.Show("Room Added successfully", "Add Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int number = Convert.ToInt32(textBoxNumber.Text);
+                if (radioButtonYes.Checked)
+                {
+                    free = "YES";
+                }
+                else if (radioButtonNo.Checked)
+                {
+                    free = "NO";
+                }
+
+                if (room.addRoom(number, type, phone, free))
+                {
+                    dataGridView1.DataSource = room.getRooms();
+                    MessageBox.Show("Room Added successfully", "Add Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Room Not Added", "Add Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Room Not Added", "Add Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, "Room Number Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -60,6 +67,80 @@ namespace HotelReservations
             textBoxNumber.Text = "";
             comboBoxRoomsType.SelectedIndex = 0;
             textBoxPhoneNumber.Text = "";
+            radioButtonYes.Checked = true;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBoxNumber.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            comboBoxRoomsType.SelectedValue = dataGridView1.CurrentRow.Cells[1].Value;
+            textBoxPhoneNumber.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+
+            string free = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+            if(free.Equals("YES"))
+            {
+                radioButtonYes.Checked = true;
+            }
+            else if(free.Equals("NO"))
+            {
+                radioButtonNo.Checked = true;
+            }
+        }
+
+        private void buttonEditRoom_Click(object sender, EventArgs e)
+        {
+            int type = Convert.ToInt32(comboBoxRoomsType.SelectedValue.ToString());
+            String phone = textBoxPhoneNumber.Text;
+            String free = "";
+
+            try
+            {
+                int number = Convert.ToInt32(textBoxNumber.Text);
+                if (radioButtonYes.Checked)
+                {
+                    free = "YES";
+                }
+                else if (radioButtonNo.Checked)
+                {
+                    free = "NO";
+                }
+
+                if (room.editRoom(number, type, phone, free))
+                {
+                    dataGridView1.DataSource = room.getRooms();
+                    MessageBox.Show("Room Data Updated", "Edit Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Room Data NOT Updated", "Edit Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Room Number Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int number = Convert.ToInt32(textBoxNumber.Text);
+                if (room.removeRoom(number))
+                {
+                    dataGridView1.DataSource = room.getRooms();
+                    MessageBox.Show("Room Data Deleted", "Delete Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Room Data NOT Deleted", "Delete Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Room Number Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
