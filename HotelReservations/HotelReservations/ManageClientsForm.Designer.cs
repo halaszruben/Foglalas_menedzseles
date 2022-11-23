@@ -225,6 +225,7 @@
             // textBoxID
             // 
             this.textBoxID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxID.Enabled = false;
             this.textBoxID.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxID.Location = new System.Drawing.Point(1000, 156);
             this.textBoxID.Name = "textBoxID";
