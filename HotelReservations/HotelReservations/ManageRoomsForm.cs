@@ -43,7 +43,7 @@ namespace HotelReservations
                 }
                 else if (radioButtonNo.Checked)
                 {
-                    free = "NO";
+                    free = "No";
                 }
 
                 if (room.addRoom(number, type, phone, free))
@@ -99,11 +99,11 @@ namespace HotelReservations
                 int number = Convert.ToInt32(textBoxNumber.Text);
                 if (radioButtonYes.Checked)
                 {
-                    free = "YES";
+                    free = "Yes";
                 }
                 else if (radioButtonNo.Checked)
                 {
-                    free = "NO";
+                    free = "No";
                 }
 
                 if (room.editRoom(number, type, phone, free))

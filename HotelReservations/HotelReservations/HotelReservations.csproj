@@ -10,9 +10,10 @@
 
   <ItemGroup>
     <Reference Include="MySql.Data">
-      <HintPath>E:\downloads\MySQL connector\MySQL\MySQL Connector NET 8.0.31\Assemblies\net6.0\MySql.Data.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.0.31\Assemblies\net6.0\MySql.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
+
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

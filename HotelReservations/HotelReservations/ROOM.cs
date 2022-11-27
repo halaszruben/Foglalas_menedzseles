@@ -25,6 +25,58 @@ namespace HotelReservations
             return table;
         }
 
+        public DataTable roomByType(int type)
+        {
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `rooms` WHERE `type`=@typ and free='Yes' ", conn.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+
+            command.Parameters.Add("@typ", MySqlDbType.Int32).Value = type;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            return table;
+        }
+
+        public int getRoomType(int number)
+        {
+            MySqlCommand command = new MySqlCommand("SELECT`type` FROM `rooms` WHERE `number`=@num", conn.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+
+            command.Parameters.Add("@num", MySqlDbType.Int32).Value = number;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            return Convert.ToInt32(table.Rows[0][0].ToString()) ;
+        }
+
+        public bool setRoomFreeToNo(int number)
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE `rooms` SET `free`='No' WHERE `number`=@num", conn.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+
+            command.Parameters.Add("@num", MySqlDbType.Int32).Value = number;
+
+            conn.openConnection();
+            if(command.ExecuteNonQuery() == 1)
+            {
+                conn.closeConnection();
+                return true;
+            }
+            else
+            {
+                conn.closeConnection();
+                return false;
+            }
+
+            
+        }
+
+
         public bool addRoom(int number, int type, String phone, String free)
         {
 
