@@ -37,6 +37,7 @@ namespace HotelReservations
 
         private void clearTheFieldsButton_Click(object sender, EventArgs e)
         {
+            textBoxReservId.Text = "";
             textBoxClientID.Text = "";
             comboBoxRoomType.SelectedIndex = 0;
             dateTimePickerIN.Value = DateTime.Now;
@@ -67,19 +68,21 @@ namespace HotelReservations
                 DateTime dateIn = dateTimePickerIN.Value;
                 DateTime dateOut = dateTimePickerOUT.Value;
 
-                if (dateIn < DateTime.Now)
+                if (DateTime.Compare(dateIn.Date,DateTime.Now.Date) < 0)
                 {
                     MessageBox.Show("The Date In Must be < Or = then today", "Invalid Date in", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else if (dateOut < dateIn)
+                else if (DateTime.Compare(dateOut.Date, dateIn.Date) < 0)
                 {
+                    MessageBox.Show(dateOut.Day + " - " + dateIn.Day);
                     MessageBox.Show("The Date Out Must be < Or = then date In", "Invalid Date Out", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     if (reservation.addReservation(roomNumber, clientID, dateIn, dateOut))
                     {
-                        room.setRoomFreeToNo(roomNumber);
+                        room.setRoomFree(roomNumber,"No");
+                        dataGridView1.DataSource = reservation.getAllReserv();
                         MessageBox.Show("New reservation added", "Add Reservation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -88,7 +91,8 @@ namespace HotelReservations
                     }
                 }
                                 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Add Reservation Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -102,7 +106,7 @@ namespace HotelReservations
             {
                 int reservID = Convert.ToInt32(textBoxReservId.Text);
                 int clientID = Convert.ToInt32(textBoxClientID.Text);
-                int roomNumber = Convert.ToInt32(comboBoxRoomNumber.SelectedValue);
+                int roomNumber = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value.ToString());
                 DateTime dateIn = dateTimePickerIN.Value;
                 DateTime dateOut = dateTimePickerOUT.Value;
 
@@ -119,7 +123,7 @@ namespace HotelReservations
                     //reservId mi0784684201
                     if (reservation.editReserv(reservID, roomNumber, clientID, dateIn, dateOut))
                     {
-                        room.setRoomFreeToNo(roomNumber);
+                        room.setRoomFree(roomNumber,"No");
                         MessageBox.Show("Reservation data updated", "edit Reservation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -143,7 +147,29 @@ namespace HotelReservations
             comboBoxRoomType.SelectedValue = room.getRoomType(roomId);
             comboBoxRoomNumber.SelectedValue = roomId;
             textBoxClientID.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            
+
+            dateTimePickerIN.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[3].Value);
+            dateTimePickerOUT.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[4].Value);
+
+        }
+
+        private void buttonRemoveReserve_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int reservId = Convert.ToInt32(textBoxReservId.Text);
+                int roomNumber = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+                if (reservation.removeReserv(reservId))
+                {
+                    dataGridView1.DataSource = reservation.getAllReserv();
+                    room.setRoomFree(roomNumber, "Yes");
+                    MessageBox.Show("Reservation Deleted", "Delete Reservation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete Reservation Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

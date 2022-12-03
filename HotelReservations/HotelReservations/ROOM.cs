@@ -53,13 +53,14 @@ namespace HotelReservations
             return Convert.ToInt32(table.Rows[0][0].ToString()) ;
         }
 
-        public bool setRoomFreeToNo(int number)
+        public bool setRoomFree(int number,String YES_or_NO)
         {
-            MySqlCommand command = new MySqlCommand("UPDATE `rooms` SET `free`='No' WHERE `number`=@num", conn.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE `rooms` SET `free`=@yes_no WHERE `number`=@num", conn.getConnection());
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
 
             command.Parameters.Add("@num", MySqlDbType.Int32).Value = number;
+            command.Parameters.Add("@yes_no", MySqlDbType.VarChar).Value = YES_or_NO;
 
             conn.openConnection();
             if(command.ExecuteNonQuery() == 1)
